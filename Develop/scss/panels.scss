@@ -1,0 +1,27 @@
+.panels
+{
+    display: flex;
+    overflow: hidden;
+
+    min-height: 100vh;
+}
+
+.panel
+{
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+
+    color: white;
+    background: #6b0f9c;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,.1);
+
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
