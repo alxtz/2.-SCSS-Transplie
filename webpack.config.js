@@ -25,8 +25,12 @@ module.exports = {
                         loader: 'css-loader'
                     },
                     {
+                        // only to help sass do the url rewriting , also have to add ?sourceMap to work
+                        loader: 'resolve-url-loader'
+                    },
+                    {
                         // add scss loader support
-                        loader: 'sass-loader'
+                        loader: 'sass-loader?sourceMap'
                     }
                 ]
             },
@@ -35,6 +39,14 @@ module.exports = {
                 use: [
                     {
                         loader: "file-loader?name=[name].[ext]&outputPath=assets/"
+                    }
+                ]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: "file-loader?name=[name].[ext]&outputPath=assets/fonts/"
                     }
                 ]
             }

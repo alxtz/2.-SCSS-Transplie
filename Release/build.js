@@ -81,14 +81,14 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(4)(content, options);
+var update = __webpack_require__(7)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss");
+		module.hot.accept("!!../node_modules/css-loader/index.js!../../../../../node_modules/resolve-url-loader/index.js!../node_modules/sass-loader/lib/loader.js?sourceMap!./style.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../../../../../node_modules/resolve-url-loader/index.js!../node_modules/sass-loader/lib/loader.js?sourceMap!./style.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -115,7 +115,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, ".panels {\n  display: flex;\n  overflow: hidden;\n  min-height: 100vh; }\n\n.panel {\n  font-size: 20px;\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  color: white;\n  background: #6b0f9c;\n  background-position: center;\n  background-size: cover;\n  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);\n  align-items: center;\n  flex: 1;\n  justify-content: center; }\n\nhtml {\n  font-family: 'Helvetica';\n  font-size: 20px;\n  font-weight: 200;\n  box-sizing: border-box;\n  background: #ffc600; }\n\nbody {\n  margin: 0; }\n", ""]);
+exports.push([module.i, ".panels {\n  display: flex;\n  overflow: hidden;\n  min-height: 100vh;\n  background-image: url(" + __webpack_require__(4) + ");\n}\n\n.panel {\n  font-size: 20px;\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  color: white;\n  background: #6b0f9c;\n  background-position: center;\n  background-size: cover;\n  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);\n  align-items: center;\n  flex: 1;\n  justify-content: center;\n}\n\n@font-face {\n  font-family: 'Alex Brush Regular';\n  src: url(" + __webpack_require__(6) + ") format(\"truetype\");\n}\n\nhtml {\n  font-family: 'Alex Brush Regular';\n  font-size: 20px;\n  font-weight: 200;\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  background-image: url(" + __webpack_require__(5) + ");\n}", ""]);
 
 // exports
 
@@ -206,6 +206,24 @@ function toComment(sourceMap) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "assets/background.jpg";
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/cat.jpeg";
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/fonts/AlexBrush-Regular.ttf";
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -240,7 +258,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(5);
+	fixUrls = __webpack_require__(8);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -516,7 +534,7 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports) {
 
 

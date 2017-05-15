@@ -1,17 +1,19 @@
 @import './scss/panels.scss';
+@import './scss/fonts.scss';
+
 
 html
 {
-    font-family: 'Helvetica';
+    font-family: 'Alex Brush Regular';
     font-size: 20px;
     font-weight: 200;
 
     box-sizing: border-box;
-
-    background: #ffc600;
 }
 
 body
 {
     margin: 0;
+
+    background-image: url('../Release/assets/cat.jpeg');
 }
