@@ -63,11 +63,65 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(2);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(4)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var style_scssModule = __webpack_require__(0);
+
+console.log('Config SCSS');
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".panels {\n  display: flex;\n  overflow: hidden;\n  min-height: 100vh; }\n\n.panel {\n  font-size: 20px;\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  color: white;\n  background: purple;\n  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);\n  align-items: center;\n  flex: 1;\n  justify-content: center; }\n  .panel > * {\n    display: flex;\n    width: 100%;\n    margin: 0;\n    flex: 1 0 auto;\n    justify-content: center;\n    align-items: center; }\n\nhtml {\n  font-family: 'Helvetica';\n  font-size: 20px;\n  font-weight: 200;\n  box-sizing: border-box;\n  background-color: #ffc600; }\n\nh1 {\n  font-family: Helvetica;\n  font-size: 25px;\n  text-align: center;\n  color: tomato; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -149,100 +203,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function logLittle() {
-    console.log('2.2 Require a module');
-}
-
-// using the global exports object
-exports.logLittle = logLittle;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(5);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./style.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// JS Modules
-var littleModule = __webpack_require__(1);
-
-console.log('1. Init');
-console.log('2.1 Config');
-littleModule.logLittle();
-
-// CSS as Modules
-var style_cssModule = __webpack_require__(2);
-console.log('3. Add CSS');
-
-
-/***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "div.middle {\n    margin: 150px;\n    height: 300px;\n    border: 20px solid tomato;\n    border-radius: 20px;\n    background-image: url(" + __webpack_require__(6) + ");\n    background-size: cover;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(undefined);
-// imports
-exports.i(__webpack_require__(4), "");
-
-// module
-exports.push([module.i, "body {\n    background-color: chocolate;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/background.jpg";
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -279,7 +240,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(8);
+	fixUrls = __webpack_require__(5);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -555,7 +516,7 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 5 */
 /***/ (function(module, exports) {
 
 

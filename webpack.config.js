@@ -14,7 +14,7 @@ module.exports = {
 
         rules: [
             {
-                test: /\.css/,
+                test: /\.scss/,
                 use: [
                     {
                         // merge css to build.js
@@ -23,6 +23,10 @@ module.exports = {
                     {
                         // add capability to require css, but still not merge to build.js
                         loader: 'css-loader'
+                    },
+                    {
+                        // sass transpiler
+                        loader: 'sass-loader'
                     }
                 ]
             },
